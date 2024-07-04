@@ -16,3 +16,5 @@ edition = "2021"
 rusqlite = { version = "0.31.0", features = ["bundled"] }
 
 piot_http = { git = "https://github.com/mc738/piot_http" }
+piot_log = { git = "https://github.com/mc738/piot_log" }
+
