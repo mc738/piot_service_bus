@@ -38,7 +38,7 @@ pub(crate) fn messages_table_sql() -> &'static str {
 
 pub fn initialize(mut conn: Connection) -> rusqlite::Result<()> {
     let t  = conn.transaction()?;
-    conn.execute(topics_table_sql(), ())?;
-    conn.execute(messages_table_sql(), ())?;
+    t.execute(topics_table_sql(), ())?;
+    t.execute(messages_table_sql(), ())?;
     t.commit()
 }
