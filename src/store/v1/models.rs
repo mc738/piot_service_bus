@@ -4,6 +4,7 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct NewTopic {
+    pub id: String,
     pub name: String,
 }
 
@@ -19,6 +20,13 @@ pub struct TopicDetails {
 }
 
 #[derive(Serialize, Deserialize)]
+pub struct NewMessage {
+    id: String,
+    topic_id: String,
+    data_blob: String,
+}
+
+#[derive(Serialize, Deserialize)]
 pub struct MetadataItem {
     pub key: String,
     pub value: String,
@@ -30,3 +38,11 @@ impl NewTopic {
         serde_json::from_str::<NewTopic>(&json).map_err(|e| { "Could not parse NewTopic" })
     }
 }
+
+impl TopicDetails {
+    pub fn serialize(&self) -> Result<String, &'static str> {
+        serde_json::to_string(self).map_err(|e| { "Could not serialize TopicDetails" })
+    }
+}
+
+
