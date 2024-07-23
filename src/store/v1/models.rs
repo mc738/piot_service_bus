@@ -23,3 +23,10 @@ pub struct MetadataItem {
     pub key: String,
     pub value: String,
 }
+
+
+impl NewTopic {
+    pub fn try_deserialize(json: String) -> Result<NewTopic, &'static str> {
+        serde_json::from_str::<NewTopic>(&json).map_err(|e| { "Could not parse NewTopic" })
+    }
+}
