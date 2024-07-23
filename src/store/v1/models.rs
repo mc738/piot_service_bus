@@ -50,7 +50,20 @@ impl TopicDetails {
 impl NewMessage {
     pub fn try_deserialize(json: String) -> Result<NewMessage, &'static str> {
         match serde_json::Value::from_str(&json) {
-            Ok(value) => {}
+            Ok(value) => {
+                match value {
+                    Value::Null => {}
+                    Value::Bool(_) => {}
+                    Value::Number(_) => {}
+                    Value::String(_) => {}
+                    Value::Array(_) => {}
+                    Value::Object(o) => {
+
+
+                    }
+                }
+
+            }
             Err(_) => {}
         }
     }
