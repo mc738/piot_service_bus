@@ -1,6 +1,8 @@
 use std::ffi::CString;
+use std::str::FromStr;
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
+use serde_json::{Error, Value};
 
 #[derive(Serialize, Deserialize)]
 pub struct NewTopic {
@@ -45,4 +47,11 @@ impl TopicDetails {
     }
 }
 
-
+impl NewMessage {
+    pub fn try_deserialize(json: String) -> Result<NewMessage, &'static str> {
+        match serde_json::Value::from_str(&json) {
+            Ok(value) => {}
+            Err(_) => {}
+        }
+    }
+}
