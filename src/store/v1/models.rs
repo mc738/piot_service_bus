@@ -52,7 +52,7 @@ impl NewMessage {
         match serde_json::Value::from_str(&json) {
             Ok(value) => {
                 match value {
-                    Value::Null => {}
+                    Value::Null => Err("Incorrect JSON type: null"),
                     Value::Bool(_) => {}
                     Value::Number(_) => {}
                     Value::String(_) => {}
