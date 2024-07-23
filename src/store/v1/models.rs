@@ -53,7 +53,7 @@ impl NewMessage {
             Ok(value) => {
                 match value {
                     Value::Null => Err("Incorrect JSON type: null"),
-                    Value::Bool(_) => {}
+                    Value::Bool(_) => Err("Incorrect JSON type: bool"),
                     Value::Number(_) => {}
                     Value::String(_) => {}
                     Value::Array(_) => {}
