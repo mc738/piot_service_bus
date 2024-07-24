@@ -55,7 +55,7 @@ impl NewMessage {
                     Value::Null => Err("Incorrect JSON type: null"),
                     Value::Bool(_) => Err("Incorrect JSON type: bool"),
                     Value::Number(_) => Err("Incorrect JSON type: number"),
-                    Value::String(_) => {}
+                    Value::String(_) => Err("Incorrect JSON type: string"),
                     Value::Array(_) => {}
                     Value::Object(o) => {
 
