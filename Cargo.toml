@@ -15,6 +15,10 @@ edition = "2021"
 # is why it is not a default feature -- it could become hard to disable.
 rusqlite = { version = "0.31.0", features = ["bundled"] }
 
+serde_json = "1.0"
+chrono = { version = "0.4.38", features = ["serde"] }
+
 piot_http = { git = "https://github.com/mc738/piot_http" }
 piot_log = { git = "https://github.com/mc738/piot_log" }
+serde = { version = "1.0.204", features = ["derive"] }
 
