@@ -34,7 +34,6 @@ pub struct MetadataItem {
     pub value: String,
 }
 
-
 impl NewTopic {
     pub fn try_deserialize(json: String) -> Result<NewTopic, &'static str> {
         serde_json::from_str::<NewTopic>(&json).map_err(|e| { "Could not parse NewTopic" })
@@ -56,8 +55,14 @@ impl NewMessage {
                     Value::Bool(_) => Err("Incorrect JSON type: bool"),
                     Value::Number(_) => Err("Incorrect JSON type: number"),
                     Value::String(_) => Err("Incorrect JSON type: string"),
-                    Value::Array(_) => {}
+                    Value::Array(_) => Err("Incorrect JSON type: array"),
                     Value::Object(o) => {
+
+
+                        match (o.get(""), o.get(""), o.get("")) {
+                            (_, _, _) => {}
+                        }
+
 
 
                     }
