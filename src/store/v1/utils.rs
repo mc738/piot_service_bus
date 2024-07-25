@@ -22,7 +22,7 @@ pub fn get_json_string_value(obj: Map<String, Value>, key: String) -> Option<Str
     })
 }
 
-pub fn get_json_int64_value(obj: Map<String, Value>, key: String) -> Option<i64> {
+pub fn get_json_i64_value(obj: Map<String, Value>, key: String) -> Option<i64> {
     obj.get(&key).and_then(|v| {
         match v {
             Value::Number(n) => {
