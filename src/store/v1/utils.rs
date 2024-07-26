@@ -11,11 +11,11 @@ pub fn get_json_object_value(obj: Map<String, Value>, key: String) -> Option<Map
     })
 }
 
-pub fn get_json_array_value(obj: Map<String, Value>, key: String) -> Option<Vec<Value>> {
+pub fn get_json_array_value(obj: &Map<String, Value>, key: String) -> Option<&Vec<Value>> {
     obj.get(&key).and_then(|v| {
         match v {
             Value::Array(a) => {
-                Some(a.clone())
+                Some(a)
             }
             _ => None
         }
