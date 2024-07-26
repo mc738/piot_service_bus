@@ -54,3 +54,14 @@ pub fn get_json_f64_value(obj: &Map<String, Value>, key: String) -> Option<f64> 
         }
     })
 }
+
+pub fn get_json_bool_value(obj: &Map<String, Value>, key: String) -> Option<&bool> {
+    obj.get(&key).and_then(|v| {
+        match v {
+            Value::Bool(b) => {
+                Some(b)
+            }
+            _ => None
+        }
+    })
+}
