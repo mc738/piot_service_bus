@@ -11,6 +11,18 @@ pub fn get_json_object_value(obj: &Map<String, Value>, key: String) -> Option<&M
     })
 }
 
+
+pub fn get_json_object_as_string_value(obj: &Map<String, Value>, key: String) -> Option<String> {
+    obj.get(&key).and_then(|v| {
+        match v {
+            Value::Object(o) => {
+                Some(v.to_string())
+            }
+            _ => None
+        }
+    })
+}
+
 pub fn get_json_array_value(obj: &Map<String, Value>, key: String) -> Option<&Vec<Value>> {
     obj.get(&key).and_then(|v| {
         match v {
