@@ -1,10 +1,10 @@
 use serde_json::{Map, Value};
 
-pub fn get_json_object_value(obj: Map<String, Value>, key: String) -> Option<Map<String, Value>> {
+pub fn get_json_object_value(obj: &Map<String, Value>, key: String) -> Option<&Map<String, Value>> {
     obj.get(&key).and_then(|v| {
         match v {
             Value::Object(o) => {
-                Some(o.clone())
+                Some(o)
             }
             _ => None
         }
